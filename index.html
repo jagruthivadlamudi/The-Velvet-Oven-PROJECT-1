@@ -1,112 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Velvet Oven | Home</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Velvet Oven</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">The Velvet Oven</span>
-      </a>
+<header class="site-header">
+  <div class="container navbar">
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="team.html">Team</a></li>
-        </ul>
-      </nav>
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-text">The Velvet Oven</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="team.html">Team</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero section">
+  <div class="container hero-grid">
+
+    <div class="hero-text">
+      <h1>Handcrafted pastries, baked fresh every day.</h1>
+
+      <p>
+        The Velvet Oven is a boutique bakery café offering soft textures,
+        premium ingredients, and warm flavors — from flaky croissants
+        to velvety cupcakes.
+      </p>
+
+      <div class="hero-actions">
+        <a href="menu.html" class="btn primary">View Menu</a>
+        <a href="gallery.html" class="btn outline">See Gallery</a>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <h1>Handcrafted pastries, baked fresh every day.</h1>
+    <div class="hero-card">
+      <span class="hero-badge">Freshly baked. Softly styled.</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <h2 class="section-title">Featured Treats</h2>
+    <p class="section-subtitle">
+      A few customer favorites to start your cravings.
+    </p>
+
+    <div class="grid-3">
+
+      <article class="card card-media">
+
+        <img class="card-img"
+        src="assets/images/croissant.jpg"
+        alt="Chocolate croissant">
+
+        <div class="card-body">
+          <span class="badge">Popular</span>
+
+          <h3>Chocolate Croissant</h3>
+
           <p>
-            The Velvet Oven is a boutique bakery café offering soft textures, premium ingredients,
-            and warm flavors — from flaky croissants to velvety cupcakes.
+            Buttery layers with rich dark chocolate
+            and a crisp finish.
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="menu.html">View Menu</a>
-            <a class="btn btn-outline" href="gallery.html">See Gallery</a>
-          </div>
         </div>
 
-        <div class="hero-visual" role="img" aria-label="Abstract bakery-themed visual background"></div>
-      </div>
-    </section>
+      </article>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Featured Treats</h2>
-        <p class="section-subtitle">A few customer favorites to start your cravings.</p>
 
-        <div class="grid-3">
-          <article class="card">
-            <span class="badge">Popular</span>
-            <h3>Chocolate Croissant</h3>
-            <p>Buttery layers with rich dark chocolate and a crisp finish.</p>
-          </article>
+      <article class="card card-media">
 
-          <article class="card">
-            <span class="badge pulse">Today’s Special</span>
-            <h3>Velvet Cupcake</h3>
-            <p>Signature red velvet with smooth vanilla cream frosting.</p>
-          </article>
+        <img class="card-img"
+        src="assets/images/cupcake.jpg"
+        alt="Velvet cupcake">
 
-          <article class="card">
-            <span class="badge">New</span>
-            <h3>Caramel Latte</h3>
-            <p>Silky espresso balanced with caramel sweetness.</p>
-          </article>
+        <div class="card-body">
+          <span class="badge pulse">Today’s Special</span>
+
+          <h3>Velvet Cupcake</h3>
+
+          <p>
+            Signature red velvet with smooth
+            vanilla cream frosting.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Why guests love us</h2>
-        <p class="section-subtitle">Simple, cozy, and made with care.</p>
+      </article>
 
-        <div class="grid-3">
-          <article class="card">
-            <h3>Fresh & Local</h3>
-            <p>We bake daily and prioritize quality ingredients for consistent flavor.</p>
-          </article>
-          <article class="card">
-            <h3>Warm Atmosphere</h3>
-            <p>Soft colors, cozy vibes, and a calm café space designed for comfort.</p>
-          </article>
-          <article class="card">
-            <h3>Elegant Design</h3>
-            <p>Clean layout, easy navigation, and smooth micro-interactions across pages.</p>
-          </article>
+
+      <article class="card card-media">
+
+        <img class="card-img"
+        src="assets/images/latte.jpg"
+        alt="Caramel latte">
+
+        <div class="card-body">
+          <span class="badge">New</span>
+
+          <h3>Caramel Latte</h3>
+
+          <p>
+            Silky espresso balanced with
+            caramel sweetness.
+          </p>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>The Velvet Oven</strong>
-        <div class="small">Handcrafted pastries • Cozy café vibes • Atlanta, GA</div>
-      </div>
-      <div class="small">© 2026 The Velvet Oven. All rights reserved.</div>
+      </article>
+
     </div>
-  </footer>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="container footer-grid">
+
+    <div>
+      <strong>The Velvet Oven</strong>
+      <div class="small">Boutique bakery café</div>
+    </div>
+
+    <div class="small">
+      © 2026 The Velvet Oven
+    </div>
+
+  </div>
+
+</footer>
 
 </body>
 </html>

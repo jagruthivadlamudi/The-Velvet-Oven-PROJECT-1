@@ -492,3 +492,68 @@ textarea {
     grid-column: span 12;
   }
 }
+/* =========================================================
+   Gallery: real images + overlay animation
+   ========================================================= */
+
+.gallery-link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 280ms ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  color: rgba(62, 39, 35, 0.92);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(234, 215, 198, 0.9);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.06);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   Homepage: image cards
+   ========================================================= */
+
+.card-media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 280ms ease;
+}
+
+.card-body {
+  padding: 16px 18px 18px;
+}
+
+.card-media:hover .card-img {
+  transform: scale(1.05);
+}
