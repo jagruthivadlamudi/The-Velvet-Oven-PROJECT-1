@@ -557,3 +557,121 @@ textarea {
 .card-media:hover .card-img {
   transform: scale(1.05);
 }
+.card-img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+/* =========================================================
+   PRO POLISH V2: gallery motion + menu layout + hover effects
+   ========================================================= */
+
+/* Smooth card hover (applies everywhere) */
+.card, .menu-item, .gallery-item {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card:hover, .menu-item:hover, .gallery-item:hover {
+  transform: translateY(-6px);
+}
+
+/* Animated gallery grid on load */
+.gallery-animate .gallery-item {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 520ms ease forwards;
+}
+
+.gallery-animate .gallery-item:nth-child(1) { animation-delay: 0.05s; }
+.gallery-animate .gallery-item:nth-child(2) { animation-delay: 0.12s; }
+.gallery-animate .gallery-item:nth-child(3) { animation-delay: 0.19s; }
+.gallery-animate .gallery-item:nth-child(4) { animation-delay: 0.26s; }
+.gallery-animate .gallery-item:nth-child(5) { animation-delay: 0.33s; }
+.gallery-animate .gallery-item:nth-child(6) { animation-delay: 0.40s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menu structure */
+.menu-section {
+  margin-top: 28px;
+}
+
+.menu-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.menu-head h2 {
+  margin: 0;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.menu-item {
+  position: relative;
+  grid-column: span 4;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(234, 215, 198, 0.9);
+  box-shadow: 0 14px 30px rgba(62, 39, 35, 0.10);
+}
+
+.menu-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(201, 124, 124, 0.18);
+  border: 1px solid rgba(234, 215, 198, 0.95);
+}
+
+/* Recommended highlight */
+.menu-item.recommended {
+  border: 2px solid rgba(201, 124, 124, 0.55);
+  box-shadow: 0 18px 35px rgba(201, 124, 124, 0.18);
+}
+
+.menu-item.recommended::before {
+  content: "Recommended";
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(201, 124, 124, 0.20);
+  border: 1px solid rgba(234, 215, 198, 0.95);
+  font-weight: 850;
+  font-size: 0.8rem;
+}
+
+/* Responsive menu grid */
+@media (max-width: 1024px) {
+  .menu-item { grid-column: span 6; }
+}
+
+@media (max-width: 600px) {
+  .menu-head { flex-direction: column; align-items: flex-start; }
+  .menu-item { grid-column: span 12; }
+}
