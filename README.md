@@ -23,4 +23,4 @@ Open `index.html` in a browser, or use VS Code Live Server.
 
 ## Team
 - Jags (Jagruthi Vadlamudi)
-- Zio
+- Zahmad Shields
