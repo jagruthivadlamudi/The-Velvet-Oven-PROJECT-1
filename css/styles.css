@@ -1,6 +1,21 @@
+/*
+  NOTE: RESET & BASE STYLES
+  - box-sizing: border-box makes padding and borders included in element's total width
+  - This prevents horizontal scrolling on mobile and makes sizing predictable
+  - It's especially important for responsive layouts to avoid unexpected overflow
+*/
+
 * {
   box-sizing: border-box;
 }
+
+/*
+  NOTE: BODY STYLES
+  - margin: 0 removes default browser margin that would create unwanted white space
+  - System font stack ensures fast loading and native look on all devices
+  - Warm, coffee-shop inspired color scheme (background: #efe6db, text: #3e2723)
+  - line-height: 1.6 improves readability, especially on mobile with longer text
+*/
 
 body {
   margin: 0;
@@ -11,19 +26,49 @@ body {
   line-height: 1.6;
 }
 
+/*
+  NOTE: CONTAINER PATTERN
+  - width: min(1100px, 92%) - THIS IS KEY MOBILE-FIRST BEHAVIOR
+  - On mobile: 92% of viewport width (creates comfortable margins)
+  - On desktop: maxes out at 1100px (prevents content from getting too wide)
+  - margin-inline: auto centers the container
+  - This approach avoids separate media queries for container width
+*/
+
 .container {
   width: min(1100px, 92%);
   margin-inline: auto;
 }
 
+/*
+  NOTE: SECTION SPACING
+  - Consistent vertical rhythm throughout the site
+  - 60px padding creates breathing room between sections
+  - Works well on both mobile and desktop without adjustment
+*/
+
 .section {
   padding: 60px 0;
 }
+
+/*
+  NOTE: HEADER BACKGROUND
+  - Dark brown color creates visual separation
+  - High contrast with white text for accessibility
+*/
 
 .site-header {
   background: #5a3d31;
   color: white;
 }
+
+/*
+  NOTE: MOBILE-FIRST NAVIGATION
+  - flex-direction: column stacks logo and nav links vertically on mobile
+  - gap: 10px creates space between stacked elements
+  - align-items: center centers everything horizontally
+  - This is INTENTIONALLY the mobile layout first
+*/
 
 .navbar {
   display: flex;
@@ -33,6 +78,14 @@ body {
   padding: 18px 0;
 }
 
+/*
+  NOTE: TABLET NAVIGATION BREAKPOINT
+  - 601px is a strategic breakpoint (between mobile and tablet)
+  - flex-direction: row changes from stacked to side-by-side
+  - justify-content: space-between pushes logo left and nav right
+  - This OVERRIDES the mobile styles when screen is wide enough
+*/
+
 /* Tablet navigation */
 @media (min-width: 601px) {
   .navbar {
@@ -40,6 +93,13 @@ body {
     justify-content: space-between;
   }
 }
+
+/*
+  NOTE: BRAND/LOGO STYLES
+  - flex display with gap creates horizontal layout with spacing
+  - text-decoration: none removes underline from link
+  - .brand-mark is a visual element (could be replaced with actual logo)
+*/
 
 .brand {
   display: flex;
@@ -60,6 +120,14 @@ body {
   font-weight: 700;
 }
 
+/*
+  NOTE: NAVIGATION LINKS - MOBILE FIRST
+  - flex-wrap: wrap allows links to wrap on very small screens
+  - justify-content: center centers the nav items when stacked
+  - gap: 16px creates consistent spacing between links
+  - padding: 0 removes default list padding
+*/
+
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -69,6 +137,13 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/*
+  NOTE: TOUCH TARGET OPTIMIZATION
+  - padding: 8px makes links easier to tap on mobile
+  - Minimum recommended touch target size is 44x44px
+  - This padding helps achieve that without changing visual size much
+*/
 
 .nav-links a {
   text-decoration: none;
@@ -81,10 +156,25 @@ body {
   opacity: 0.7;
 }
 
+/*
+  NOTE: ACTIVE PAGE INDICATOR
+  - [aria-current="page"] attribute selector for accessibility
+  - Bottom border shows current page without changing layout
+  - padding-bottom adjustment compensates for border thickness
+*/
+
 .nav-links a[aria-current="page"] {
   border-bottom: 2px solid rgba(201,124,124,0.75);
   padding-bottom: 6px;
 }
+
+/*
+  NOTE: MOBILE FIRST HERO GRID
+  - grid-template-columns: 1fr - SINGLE COLUMN on mobile
+  - gap: 30px creates vertical space between stacked elements
+  - align-items: center vertically centers content
+  - This is the base layout that works on all screens
+*/
 
 /* MOBILE FIRST: Single column by default */
 .hero-grid {
@@ -94,12 +184,28 @@ body {
   align-items: center;
 }
 
+/*
+  NOTE: DESKTOP HERO GRID BREAKPOINT
+  - 901px breakpoint switches to two columns
+  - Only applies on large screens where side-by-side works
+  - Content naturally flows into this layout
+*/
+
 /* Tablet/Desktop hero grid */
 @media (min-width: 901px) {
   .hero-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/*
+  NOTE: PROGRESSIVE TYPOGRAPHY SCALING
+  - Multiple breakpoints for font sizes
+  - Mobile: 32px (smaller, fits better)
+  - Tablet: 36px (medium)
+  - Desktop: 42px (largest)
+  - This prevents text from being too large on mobile or too small on desktop
+*/
 
 .hero-text h1 {
   font-size: 32px; /* Smaller on mobile */
@@ -118,12 +224,27 @@ body {
   }
 }
 
+/*
+  NOTE: RESPONSIVE BUTTON GROUP
+  - flex-wrap: wrap allows buttons to stack on very small screens
+  - gap: 14px creates space between buttons
+  - This prevents horizontal overflow on narrow devices
+*/
+
 .hero-actions {
   display: flex;
   gap: 14px;
   margin-top: 16px;
   flex-wrap: wrap; /* In case of very small screens */
 }
+
+/*
+  NOTE: PROGRESSIVE CARD PADDING
+  - Mobile-first: 25px padding (less space on small screens)
+  - Tablet: 30px padding (more breathing room)
+  - Desktop: 40px padding (maximum visual comfort)
+  - This creates appropriate whitespace at each screen size
+*/
 
 .hero-card {
   padding: 25px; /* Less padding on mobile */
@@ -147,10 +268,26 @@ body {
   font-weight: 600;
 }
 
+/*
+  NOTE: HERO BACKGROUND EFFECT
+  - position: relative creates positioning context for pseudo-element
+  - overflow: hidden prevents pseudo-element from causing scroll
+  - This creates a subtle textured background without affecting layout
+*/
+
 .hero {
   position: relative;
   overflow: hidden;
 }
+
+/*
+  NOTE: BACKGROUND OVERLAY TECHNIQUE
+  - ::before pseudo-element creates background without extra HTML
+  - inset: 0 makes it cover entire parent
+  - opacity: 0.15 makes it very subtle
+  - transform: scale(1.05) prevents edge showing during animation
+  - This maintains content readability while adding visual interest
+*/
 
 .hero::before {
   content: "";
@@ -161,10 +298,24 @@ body {
   transform: scale(1.05);
 }
 
+/*
+  NOTE: Z-INDEX FOR CONTENT
+  - Positions content above the background pseudo-element
+  - z-index only works on positioned elements
+  - This ensures text is readable over the background image
+*/
+
 .hero .container {
   position: relative;
   z-index: 1;
 }
+
+/*
+  NOTE: BUTTON STYLES - MOBILE FRIENDLY
+  - display: inline-block ensures proper padding/margin behavior
+  - padding creates comfortable touch target
+  - border-radius: 20px creates pill shape
+*/
 
 .btn {
   padding: 10px 16px;
@@ -183,6 +334,15 @@ body {
   border: 2px solid #c97c7c;
   color: #5a3d31;
 }
+
+/*
+  NOTE: SECTION TITLE SCALING
+  - Same progressive enhancement pattern as hero heading
+  - Mobile: 28px (appropriate size)
+  - Tablet: 30px (slight increase)
+  - Desktop: 32px (maximum)
+  - Subtle changes maintain hierarchy across devices
+*/
 
 .section-title {
   font-size: 28px; /* Smaller on mobile */
@@ -206,6 +366,16 @@ body {
   margin-bottom: 28px;
 }
 
+/*
+  NOTE: MOBILE FIRST 3-COLUMN GRID
+  - THIS IS A CLASSIC RESPONSIVE PATTERN
+  - Mobile: 1 column (grid-template-columns: 1fr)
+  - Tablet: 2 columns at 601px
+  - Desktop: 3 columns at 901px
+  - Content reflows naturally at each breakpoint
+  - No need to hide or rearrange content
+*/
+
 /* MOBILE FIRST: Grid layouts */
 .grid-3 {
   display: grid;
@@ -225,6 +395,14 @@ body {
   }
 }
 
+/*
+  NOTE: CARD COMPONENT
+  - background: white creates contrast with page background
+  - border-radius matches design system
+  - overflow: hidden keeps content within rounded corners
+  - padding creates internal spacing
+*/
+
 .card {
   background: white;
   border-radius: 14px;
@@ -235,6 +413,14 @@ body {
 .card-media {
   padding: 0;
 }
+
+/*
+  NOTE: RESPONSIVE IMAGES
+  - width: 100% makes image fill container width
+  - height: 180px fixed height maintains consistency
+  - object-fit: cover prevents distortion, crops instead
+  - This pattern works across all screen sizes
+*/
 
 .card-img {
   width: 100%;
@@ -265,6 +451,15 @@ body {
   100% {transform:scale(1)}
 }
 
+/*
+  NOTE: MOBILE FIRST GALLERY GRID
+  - Same progressive enhancement pattern as grid-3
+  - Mobile: 1 column for easy scrolling
+  - Tablet: 2 columns at 601px
+  - Desktop: 3 columns at 901px
+  - gap: 18px creates consistent spacing
+*/
+
 /* MOBILE FIRST: Gallery grid */
 .gallery-grid {
   display: grid;
@@ -290,12 +485,28 @@ body {
   border-radius: 12px;
 }
 
+/*
+  NOTE: GALLERY IMAGE STYLES
+  - height: 240px creates consistent row height
+  - object-fit: cover prevents distortion
+  - transition moved from hover for better performance
+  - transform property is hardware accelerated on many devices
+*/
+
 .gallery-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
   transition: transform .3s; /* Moved from hover for better performance */
 }
+
+/*
+  NOTE: GALLERY OVERLAY
+  - Positioned absolutely at bottom of image
+  - Semi-transparent background for readability
+  - Initially hidden with opacity:0 and transform
+  - Revealed on hover (for devices that support hover)
+*/
 
 .gallery-overlay {
   position: absolute;
@@ -309,6 +520,16 @@ body {
   transform: translateY(8px);
   transition: all .3s;
 }
+
+/*
+  NOTE: HOVER EFFECTS WITH MEDIA QUERY
+  - @media (hover: hover) targets devices that support hover
+  - This PREVENTS sticky hover states on touch devices
+  - On mobile, these effects won't activate (no hover equivalent)
+  - transform: scale(1.06) creates subtle zoom
+  - translateY(-6px) creates lift effect
+  - This is an accessibility and UX best practice
+*/
 
 /* Hover effects - they work on devices that support hover */
 @media (hover: hover) {
@@ -336,6 +557,14 @@ body {
   animation: fadeUp .5s forwards;
 }
 
+/*
+  NOTE: STAGGERED ANIMATION
+  - nth-child selectors create progressive delays
+  - Each item fades up slightly after the previous
+  - Creates polished, intentional feel
+  - Delays increase by .05s each item
+*/
+
 .gallery-animate .gallery-item:nth-child(1){animation-delay:.05s}
 .gallery-animate .gallery-item:nth-child(2){animation-delay:.1s}
 .gallery-animate .gallery-item:nth-child(3){animation-delay:.15s}
@@ -349,6 +578,14 @@ body {
     transform:translateY(0);
   }
 }
+
+/*
+  NOTE: MOBILE FIRST MENU GRID
+  - Same responsive pattern as other grids
+  - Consistent 1fr -> 2fr -> 3fr progression
+  - Maintains design system consistency
+  - gap: 20px matches other grid spacing
+*/
 
 /* MOBILE FIRST: Menu grid */
 .menu-grid {
@@ -390,6 +627,14 @@ body {
   font-weight:700;
 }
 
+/*
+  NOTE: RECOMMENDED VARIANT
+  - border:2px creates visual emphasis
+  - ::before pseudo-element adds "Recommended" label
+  - Absolute positioning places it at top-left
+  - This pattern adds visual variation without extra HTML
+*/
+
 .menu-item.recommended {
   border:2px solid #c97c7c;
 }
@@ -420,12 +665,28 @@ body {
   margin-top:40px;
 }
 
+/*
+  NOTE: MOBILE FIRST FOOTER
+  - flex-direction: column stacks footer sections on mobile
+  - text-align: center centers everything
+  - gap:20px creates vertical spacing
+  - This is the mobile layout by default
+*/
+
 .footer-grid {
   display:flex;
   flex-direction: column; /* Mobile: stacked */
   gap: 20px;
   text-align: center;
 }
+
+/*
+  NOTE: TABLET/DESKTOP FOOTER
+  - flex-direction: row changes to horizontal layout
+  - justify-content: space-between spreads content
+  - text-align: left aligns text appropriately for horizontal layout
+  - Only applies at 601px and above
+*/
 
 @media (min-width: 601px) {
   .footer-grid {
@@ -439,6 +700,16 @@ body {
   font-size:14px;
   opacity:.8;
 }
+
+/*
+  NOTE: ACCESSIBILITY - REDUCED MOTION
+  - @media (prefers-reduced-motion: reduce) detects user preference
+  - !important overrides all animation/transition properties
+  - This is CRITICAL for users with vestibular disorders
+  - Respects system-level accessibility settings
+  - scroll-behavior: auto prevents smooth scrolling
+  - This follows WCAG success criterion 2.3.3
+*/
 
 /* YOUR ACCESSIBILITY MEDIA QUERY PRESERVED */
 @media (prefers-reduced-motion: reduce) {
