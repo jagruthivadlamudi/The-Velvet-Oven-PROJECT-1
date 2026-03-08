@@ -382,6 +382,13 @@ body {
   transition: all .3s ease;
 }
 
+.gallery-link:hover .gallery-overlay {
+  color: #bf5959; /* Your red color */
+  background: white; /* Optional: change background too */
+  transition: color 0.3s ease;
+}
+
+
 /* Hover effects - they work on devices that support hover */
 @media (hover: hover) {
   .gallery-item:hover .gallery-overlay {
@@ -425,6 +432,8 @@ body {
     transform:translateY(0);
   }
 }
+
+
 
 /* MOBILE FIRST: Menu grid */
 .menu-grid {
