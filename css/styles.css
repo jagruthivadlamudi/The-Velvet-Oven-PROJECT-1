@@ -27,18 +27,9 @@ body {
 
 .navbar {
   display: flex;
-  flex-direction: column; /* Mobile: stacked */
-  gap: 10px;
+  justify-content: space-between;
   align-items: center;
   padding: 18px 0;
-}
-
-/* Tablet navigation */
-@media (min-width: 601px) {
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
 
 .brand {
@@ -49,11 +40,11 @@ body {
   color: white;
 }
 
-.brand-mark {
-  width: 28px;
-  height: 28px;
-  background: #d6a89b;
+.logo {
+  height: 38px;
+  width: auto;
   border-radius: 6px;
+  display: block;
 }
 
 .brand-text {
@@ -62,9 +53,7 @@ body {
 
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+  gap: 24px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -74,30 +63,10 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  padding: 8px; /* Better touch target */
-  position: relative; /* Added for underline animation */
 }
 
-/* ADDED: Hover underline animation for nav links */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: rgba(201,124,124,0.75);
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Keep the opacity hover as a fallback but the underline is the primary effect */
 .nav-links a:hover {
-  opacity: 1; /* Changed from 0.7 to keep text readable with underline */
+  opacity: 0.7;
 }
 
 .nav-links a[aria-current="page"] {
@@ -105,82 +74,28 @@ body {
   padding-bottom: 6px;
 }
 
-/* Ensure active page doesn't get duplicate underlines */
-.nav-links a[aria-current="page"]::after {
-  display: none;
-}
-
-/* MOBILE FIRST: Single column by default */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   align-items: center;
 }
 
-/* Tablet/Desktop hero grid */
-@media (min-width: 901px) {
-  .hero-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ADDED: Hero text fade-in animation */
-.hero-text {
-  animation: heroFadeIn 1s ease forwards;
-}
-
-@keyframes heroFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .hero-text h1 {
-  font-size: 32px; /* Smaller on mobile */
+  font-size: 42px;
   margin-bottom: 10px;
-}
-
-@media (min-width: 601px) {
-  .hero-text h1 {
-    font-size: 36px;
-  }
-}
-
-@media (min-width: 901px) {
-  .hero-text h1 {
-    font-size: 42px;
-  }
 }
 
 .hero-actions {
   display: flex;
   gap: 14px;
   margin-top: 16px;
-  flex-wrap: wrap; /* In case of very small screens */
 }
 
 .hero-card {
-  padding: 25px; /* Less padding on mobile */
+  padding: 40px;
   background: #f7efe6;
   border-radius: 14px;
-}
-
-@media (min-width: 601px) {
-  .hero-card {
-    padding: 30px;
-  }
-}
-
-@media (min-width: 901px) {
-  .hero-card {
-    padding: 40px;
-  }
 }
 
 .hero-badge {
@@ -211,14 +126,6 @@ body {
   border-radius: 20px;
   text-decoration: none;
   font-weight: 600;
-  display: inline-block; /* Better for mobile */
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Added smooth button transitions */
-}
-
-/* ADDED: Button hover effects */
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .btn.primary {
@@ -226,34 +133,14 @@ body {
   color: white;
 }
 
-.btn.primary:hover {
-  background: #b56767; /* Darker on hover */
-}
-
 .btn.outline {
   border: 2px solid #c97c7c;
   color: #5a3d31;
 }
 
-.btn.outline:hover {
-  background: rgba(201,124,124,0.1);
-}
-
 .section-title {
-  font-size: 28px; /* Smaller on mobile */
+  font-size: 32px;
   margin-bottom: 6px;
-}
-
-@media (min-width: 601px) {
-  .section-title {
-    font-size: 30px;
-  }
-}
-
-@media (min-width: 901px) {
-  .section-title {
-    font-size: 32px;
-  }
 }
 
 .section-subtitle {
@@ -261,23 +148,10 @@ body {
   margin-bottom: 28px;
 }
 
-/* MOBILE FIRST: Grid layouts */
 .grid-3 {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile: 1 column */
+  grid-template-columns: repeat(3,1fr);
   gap: 20px;
-}
-
-@media (min-width: 601px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
-  }
-}
-
-@media (min-width: 901px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
-  }
 }
 
 .card {
@@ -285,7 +159,6 @@ body {
   border-radius: 14px;
   overflow: hidden;
   padding: 16px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Moved from combined selector for clarity */
 }
 
 .card-media {
@@ -296,99 +169,10 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Smooth image zoom */
-}
-
-/* Card image zoom on hover */
-.card:hover .card-img {
-  transform: scale(1.05);
 }
 
 .card-body {
   padding: 16px;
-}
-
-/* NEW: Long rectangle info card for team.html */
-.info-card-long {
-  display: flex;
-  background: white;
-  border-radius: 14px;
-  padding: 24px;
-  margin: 32px 0;
-  gap: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #c97c7c;
-}
-
-.info-card-long:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.info-card-icon {
-  font-size: 2.5rem;
-  line-height: 1;
-  min-width: 50px;
-  text-align: center;
-}
-
-.info-card-content {
-  flex: 1;
-}
-
-.info-card-title {
-  font-size: 1.25rem;
-  margin: 0 0 10px 0;
-  color: #3e2723;
-}
-
-.info-card-description {
-  margin: 0 0 16px 0;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.info-card-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.info-card-tag {
-  background: #f1ddd5;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #5a3d31;
-}
-
-/* Mobile responsiveness for the long card */
-@media (max-width: 600px) {
-  .info-card-long {
-    flex-direction: column;
-    padding: 20px;
-    gap: 12px;
-  }
-  
-  .info-card-icon {
-    font-size: 2rem;
-    text-align: left;
-  }
-}
-
-/* For very small screens */
-@media (max-width: 400px) {
-  .info-card-details {
-    flex-direction: column;
-    gap: 6px;
-  }
-  
-  .info-card-tag {
-    display: inline-block;
-    width: fit-content;
-  }
 }
 
 .badge {
@@ -399,57 +183,32 @@ body {
   font-weight: 700;
 }
 
-/* Pulse animation for Today's Special badge */
 .pulse {
-  animation: pulse 3s infinite;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% { 
-    transform: scale(1);
-    background: #f1ddd5; /* Original color */
-  }
-  50% { 
-    transform: scale(1.15);
-    background: #c97c7c; /* Change to accent color */
-    color: white;
-  }
-  100% { 
-    transform: scale(1);
-    background: #f1ddd5; /* Back to original */
-  }
+  0% {transform:scale(1)}
+  50% {transform:scale(1.05)}
+  100% {transform:scale(1)}
 }
-/* MOBILE FIRST: Gallery grid */
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile: 1 column */
+  grid-template-columns: repeat(3,1fr);
   gap: 18px;
-}
-
-@media (min-width: 601px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
-  }
-}
-
-@media (min-width: 901px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
-  }
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  transition: transform .3s ease; /* Moved from hover for better performance */
 }
 
 .gallery-overlay {
@@ -462,52 +221,31 @@ body {
   font-weight: 700;
   opacity: 0;
   transform: translateY(8px);
-  transition: all .3s ease;
+  transition: all .3s;
 }
 
-.gallery-link:hover .gallery-overlay {
-  color: #bf5959; /* Your red color */
-  background: white; /* Optional: change background too */
-  transition: color 0.3s ease;
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-
-/* Hover effects - they work on devices that support hover */
-@media (hover: hover) {
-  .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .gallery-item:hover .gallery-img {
-    transform: scale(1.06);
-  }
-  
-  .card:hover,
-  .menu-item:hover,
-  .gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
-  }
+.gallery-item:hover .gallery-img {
+  transform: scale(1.06);
+  transition: transform .3s;
 }
 
-/* Staggered fade-up animation for gallery items */
 .gallery-animate .gallery-item {
   opacity: 0;
   transform: translateY(12px);
   animation: fadeUp .5s forwards;
 }
 
-/* Staggered delays */
 .gallery-animate .gallery-item:nth-child(1){animation-delay:.05s}
 .gallery-animate .gallery-item:nth-child(2){animation-delay:.1s}
 .gallery-animate .gallery-item:nth-child(3){animation-delay:.15s}
 .gallery-animate .gallery-item:nth-child(4){animation-delay:.2s}
 .gallery-animate .gallery-item:nth-child(5){animation-delay:.25s}
 .gallery-animate .gallery-item:nth-child(6){animation-delay:.3s}
-.gallery-animate .gallery-item:nth-child(7){animation-delay:.35s}
-.gallery-animate .gallery-item:nth-child(8){animation-delay:.4s}
-.gallery-animate .gallery-item:nth-child(9){animation-delay:.45s}
 
 @keyframes fadeUp {
   to {
@@ -516,25 +254,10 @@ body {
   }
 }
 
-
-
-/* MOBILE FIRST: Menu grid */
 .menu-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Mobile: 1 column */
-  gap: 20px;
-}
-
-@media (min-width: 601px) {
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
-  }
-}
-
-@media (min-width: 901px) {
-  .menu-grid {
-    grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
-  }
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .menu-item {
@@ -542,7 +265,6 @@ body {
   padding:18px;
   border-radius:14px;
   position:relative;
-  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .menu-top {
@@ -574,19 +296,18 @@ body {
   font-weight:700;
 }
 
-/* ADDED: Staggered animation for featured menu items */
-.featured-grid .menu-item {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeUp .5s forwards;
+.card,
+.menu-item,
+.gallery-item {
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.featured-grid .menu-item:nth-child(1){animation-delay:.05s}
-.featured-grid .menu-item:nth-child(2){animation-delay:.1s}
-.featured-grid .menu-item:nth-child(3){animation-delay:.15s}
-.featured-grid .menu-item:nth-child(4){animation-delay:.2s}
-.featured-grid .menu-item:nth-child(5){animation-delay:.25s}
-.featured-grid .menu-item:nth-child(6){animation-delay:.3s}
+.card:hover,
+.menu-item:hover,
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
 
 .site-footer {
   background:#5a3d31;
@@ -597,17 +318,7 @@ body {
 
 .footer-grid {
   display:flex;
-  flex-direction: column; /* Mobile: stacked */
-  gap: 20px;
-  text-align: center;
-}
-
-@media (min-width: 601px) {
-  .footer-grid {
-    flex-direction: row;
-    justify-content:space-between;
-    text-align: left;
-  }
+  justify-content:space-between;
 }
 
 .small {
@@ -615,24 +326,57 @@ body {
   opacity:.8;
 }
 
-/* Accessibility - respects reduced motion preferences */
+@media (max-width:900px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.grid-3{
+grid-template-columns:1fr 1fr;
+}
+
+.gallery-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.menu-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media (max-width:600px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
+}
+
+.grid-3{
+grid-template-columns:1fr;
+}
+
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+.menu-grid{
+grid-template-columns:1fr;
+}
+
+.logo {
+  height: 34px;
+}
+
+}
+
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-  
-  /* Override hover effects when reduced motion is preferred */
-  .card:hover,
-  .menu-item:hover,
-  .gallery-item:hover,
-  .btn:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-  
-  .nav-links a::after {
-    transition: none !important;
-  }
+
+* {
+animation:none !important;
+transition:none !important;
+scroll-behavior:auto !important;
+}
+
 }
