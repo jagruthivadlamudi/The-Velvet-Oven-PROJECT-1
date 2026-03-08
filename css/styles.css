@@ -279,9 +279,19 @@ body {
 }
 
 @keyframes pulse {
-  0% {transform:scale(1)}
-  50% {transform:scale(1.05)}
-  100% {transform:scale(1)}
+  0% { 
+    transform: scale(1);
+    background: #f1ddd5; /* Original color */
+  }
+  50% { 
+    transform: scale(1.15);
+    background: #c97c7c; /* Change to accent color */
+    color: white;
+  }
+  100% { 
+    transform: scale(1);
+    background: #f1ddd5; /* Back to original */
+  }
 }
 
 .gallery-grid {
